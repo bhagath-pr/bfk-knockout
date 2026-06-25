@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600&display=swap');
+
+@font-face {
+  font-family: 'FWC26'; /* You can name this whatever you want */
+  src: url('./assets/fonts/FWC2026-NormalRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg-dark: #121212;
+  --text-light: #f3f4f6;
+  --white-path: #ffffff;
+  --blue-path: #a5f3fc;
+  --gold-winner: #fbbf24;
+  --green-runner: #4ade80;
+  --red-bronze: #fca5a5;
+  --slot-bg: #1f2937;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image: url('./assets/images/background_texture.jpg');
+  background-repeat: repeat;
+  background-size: 1500px;
+  color: var(--text-light);
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1, h2 {
+  font-family: 'FWC26', sans-serif;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.header-container {
+  position: relative;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.admin-link-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #C9BFC1;
+  color: black;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  border: 1px solid #374151;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.admin-link-btn:hover {
+  background-color: black;
+  color: var(--text-light);
+}
+
+.main-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  color: #9ca3af;
+}
+
+/* Bracket Layout System */
+.bracket-board {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 2rem 2rem 2rem;
+  width: 100%;
+  height: 75vh; /* Gives the flexbox room to space items vertically */
+  min-height: 600px;
+}
+
+.bracket-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 160px; /* Scaled down from 180px to fit the 9-column layout */
+}
+
+.center-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 200px; /* Scaled down from 220px */
+}
+
+.matchup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Groups the Ro16 pairs together */
+}
+
+/* Individual Slots */
+.team-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--slot-bg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  height: 40px;
+  width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+.white-slot { background-color: var(--white-path); }
+.blue-slot { background-color: var(--blue-path); }
+.winner-slot { background-color: var(--gold-winner); }
+.runner-slot { background-color: var(--green-runner); }
+.bronze-slot { background-color: var(--red-bronze); }
+
+.flag-box {
+  width: 24px;
+  height: 16px;
+  background-color: #374151; /* Empty state box */
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.flag-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- ADMIN PANEL STYLES --- */
+.admin-auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+}
+
+.admin-auth form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--slot-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.admin-auth input {
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: none;
+  background: #374151;
+  color: white;
+}
+
+.admin-panel {
+  padding: 2rem 5%;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 1rem;
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.admin-card {
+  background: var(--slot-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #4ade80; /* Default ready */
+}
+
+.admin-card.locked {
+  border-left-color: #6b7280;
+  opacity: 0.7;
+}
+
+.admin-card.completed {
+  border-left-color: var(--gold-winner);
+}
+
+.matchup-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.team-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-input input {
+  width: 60px;
+  padding: 0.5rem;
+  text-align: center;
+  background: #374151;
+  border: none;
+  color: white;
+  border-radius: 4px;
+}
+
+.winner-select select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background: #374151;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.admin-actions button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.save-btn { background: #4ade80; color: #111827; }
+.revert-btn { background: #ef4444; color: white; }
+
+/* --- MOBILE LANDSCAPE PROMPT --- */
+.landscape-prompt {
+  display: none; /* Hidden by default on desktop and landscape mobile */
+}
+
+/* If screen is mobile-sized AND vertical (portrait) */
+@media (max-width: 768px) and (orientation: portrait) {
+
+  /* Hide the bracket so it doesn't try to weirdly format in the background */
+  .bracket-board, .header-container {
+    display: none !important;
+  }
+
+  /* Show the full-screen prompt */
+  .landscape-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--bg-dark);
+    background-image: url('./assets/images/background_texture.jpg');
+    z-index: 9999;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .prompt-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--white-path);
+  }
+
+  .prompt-content p {
+    font-size: 1.2rem;
+    color: #9ca3af;
+  }
+
+  .rotate-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--blue-path);
+  }
+}
+
+/* --- ADMIN HEADER ACTIONS --- */
+.admin-header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.back-link-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--blue-path); /* Uses your existing blue path color */
+  color: #111827;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease;
+}
+
+.back-link-btn:hover {
+  opacity: 0.8;
+}
+
+.logout-btn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #ef4444; /* Red color to distinguish it as a destructive action */
+  border: 1px solid #ef4444;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ef4444;
+  color: white;
+}
