@@ -47,15 +47,17 @@ h1, h2 {
   position: relative;
   padding: 2rem 0;
   text-align: center;
+  min-width: max-content; /* Forces header to stretch over the entire scrollable area */
 }
 
 .admin-link-btn {
-  position: absolute;
+  position: fixed; /* Changed from absolute to fixed */
   top: 1.5rem;
-  right: 2rem;
+  right: 1.5rem; /* Slightly tighter margin for mobile screens */
+  z-index: 1000; /* Ensures it hovers above all bracket elements */
   padding: 0.5rem 1rem;
-  background-color: #C9BFC1;
-  color: black;
+  background-color: var(--slot-bg);
+  color: #9ca3af;
   text-decoration: none;
   border-radius: 4px;
   font-family: 'Rajdhani', sans-serif;
