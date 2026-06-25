@@ -28,7 +28,7 @@ body {
   background-color: var(--bg-dark);
   background-image: url('./assets/images/background_texture.jpg');
   background-repeat: repeat;
-  background-size: 1500px;
+  background-size: 1800px;
   color: var(--text-light);
   font-family: 'Rajdhani', sans-serif;
   min-height: 100vh;
